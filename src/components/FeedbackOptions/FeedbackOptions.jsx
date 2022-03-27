@@ -1,22 +1,21 @@
-import React from 'react';
 import s from './FeedbackOptions..module.css';
 import PropTypes from 'prop-types';
 
-export default function FeedbackOptions({ onLeaveFeedback, buttons }) {
-  return Object.keys(buttons).map((button, id) => (
+export default function FeedbackOptions({ onLeaveFeedback, options }) {
+  return options.map((options, id) => (
     <button
       key={id}
-      name={button}
+      name={options}
       type="button"
       className={s.Feedback__button}
       onClick={onLeaveFeedback}
     >
-      {button}
+      {options}
     </button>
   ));
 }
 
 FeedbackOptions.prototype = {
   onLeaveFeedback: PropTypes.string.isRequired,
-  buttons: PropTypes.string.isRequired,
+  options: PropTypes.func.isRequired,
 };
